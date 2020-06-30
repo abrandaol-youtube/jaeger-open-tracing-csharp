@@ -15,6 +15,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using OpenTracing;
 using OpenTracing.Util;
+using Repository;
 
 namespace JaegerOpenTrace
 {
@@ -31,6 +32,7 @@ namespace JaegerOpenTrace
         {
             services.AddControllers();
             services.AddSingleton<ICustomerRepository, CustomerRepository>();
+            services.AddSingleton<IInformationRepository, InformationRepository>();            
 
             services.AddSingleton<ITracer>(serviceProvider =>
             {
